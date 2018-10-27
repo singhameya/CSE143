@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class PlayThatTune {
     public static void main(String[] args) throws FileNotFoundException {
-        JFileChooser chooser = new JFileChooser(new File("./play"));
+        JFileChooser chooser = new JFileChooser(new File("GuitarHero/play"));
         int result = chooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             Scanner input = new Scanner(chooser.getSelectedFile());
