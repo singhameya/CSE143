@@ -32,10 +32,6 @@ public class HangmanManager {
      */
     private String pattern;
     /**
-     * Holds the length of words in the game.
-     */
-    private int length;
-    /**
      * Holds the number of incorrect guesses the user can still make.
      */
     private int chancesLeft;
@@ -68,11 +64,10 @@ public class HangmanManager {
         this.dictionary = new TreeSet<String>();
         guesses = new HashSet<Character>();
         pattern = "";
-        this.length = length;
         chancesLeft = max;
 
-        initDictionary(dictionary);
-        initPattern();
+        initDictionary(dictionary, length);
+        initPattern(length);
 
         patternMap.put(pattern, this.dictionary);
     }
@@ -83,7 +78,7 @@ public class HangmanManager {
      *
      * @param dictionary Dictionary to filter words of only of passed length.
      */
-    private void initDictionary(Collection<String> dictionary) {
+    private void initDictionary(Collection<String> dictionary, int length) {
         for (String word : dictionary) {
             if (word.length() == length) {
                 this.dictionary.add(word);
@@ -94,7 +89,7 @@ public class HangmanManager {
     /**
      * Initializes the pattern to dashes in all spaces.
      */
-    private void initPattern() {
+    private void initPattern(int length) {
         for (int i = 0; i < length; i++) {
             pattern += "-";
         }
@@ -209,7 +204,7 @@ public class HangmanManager {
      */
     private String getPattern(String word, char guess) {
         String out = "";
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < pattern.length(); i++) {
             if (word.charAt(i) == pattern.charAt(i)) {
                 out += pattern.charAt(i);
             } else if (word.charAt(i) == guess) {
