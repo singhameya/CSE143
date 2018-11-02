@@ -9,6 +9,7 @@ public class TestE {
     public static void main(String[] args) {
         double x = 3;
         double y = 4;
-        // double z = <fill in expression here>;
+        double z = - pow ( y / y , abs ( 42 ) )
+                ;
     }
 }

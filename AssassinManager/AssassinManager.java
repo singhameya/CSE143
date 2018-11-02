@@ -42,10 +42,8 @@ public class AssassinManager {
 
         AssassinNode current = killRing;
         for (int i = 1; i < names.size(); i++) {
-            while (current.next != null) {
-                current = current.next;
-            }
             current.next = new AssassinNode(names.get(i));
+            current = current.next;
         }
     }
 
