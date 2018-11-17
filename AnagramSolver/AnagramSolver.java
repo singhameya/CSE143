@@ -18,7 +18,7 @@ public class AnagramSolver {
     /**
      * Constructs a new AnagramSolver which will use the passed dictionary of
      * words to solve anagrams.
-     * @param dict A
+     * @param dict Dictionary of words that will be used to solve the anagrams.
      */
     public AnagramSolver(List<String> dict) {
         inventoryMap = new HashMap<String, LetterInventory>();
@@ -28,6 +28,13 @@ public class AnagramSolver {
         }
     }
 
+    /**
+     * Prints all combinations of words from the dictionary that are anagrams of
+     * the passed string that include at most the passed maximum number words.
+     * @param s String to find valid anagrams of using dictionary words.
+     * @param max Maximum number of words to include in the anagram.
+     * @throws IllegalArgumentException Thrown if passed max is less than zero.
+     */
     public void print(String s, int max) {
         if (max < 0) {
             throw new IllegalArgumentException();
@@ -38,6 +45,17 @@ public class AnagramSolver {
                 0, new Stack<String>());
     }
 
+    /**
+     * Private recursive backtracking method for printing all anagrams. Utilizes
+     * pruneDictionary on every recursive call to reduce number of words to be
+     * tested.
+     * @param current The current LetterInventory of remaining characters from
+     *                the original string.
+     * @param max The max number of words allowed by the user.
+     * @param dict Current dictionary of words to be searched.
+     * @param picked Current number of picked words.
+     * @param words Stack of words that have been picked.
+     */
     private void print(LetterInventory current, int max, List<String> dict,
                        int picked, Stack<String> words) {
         if (current.isEmpty()) {
@@ -55,6 +73,14 @@ public class AnagramSolver {
         }
     }
 
+    /**
+     * Private helper to prune words that cannot be subtracted from the current
+     * LetterInventory.
+     * @param dict The current dictionary to be pruned.
+     * @param current The current LetterInventory to check words against.
+     * @return Returns a pruned dictionary containing only the words that can be
+     *         subtracted from LetterInventory current.
+     */
     private List<String> pruneDictionary(List<String> dict,
                                          LetterInventory current) {
         List<String> prunedDictionary = new LinkedList<String>(dict);
