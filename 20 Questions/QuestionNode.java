@@ -1,3 +1,15 @@
+/*
+ * Author: Ameya Singh
+ * CSE 143 AQ
+ * TA: Soham P.
+ * Homework 7: 20 Questions
+ */
+
+/**
+ * QuestionNode is a class that supports in creating QuestionTree instances.
+ * Each node holds a main data String and references to its left and right child
+ * nodes.
+ */
 public class QuestionNode {
     /**
      * Holds data string in node.

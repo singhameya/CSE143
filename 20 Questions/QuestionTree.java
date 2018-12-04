@@ -1,6 +1,17 @@
+/*
+ * Author: Ameya Singh
+ * CSE 143 AQ
+ * TA: Soham P.
+ * Homework 7: 20 Questions
+ */
+
 import java.io.*;
 import java.util.*;
 
+/**
+ * QuestionTree is a class that allows for creating a 20 Questions style, yes/no
+ * question guessing game.
+ */
 public class QuestionTree {
     /**
      * Holds a reference to Scanner on System.in.

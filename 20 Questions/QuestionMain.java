@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 
 public class QuestionMain {
-    public static final String QUESTION_FILE = "20 Questions/test.txt";
+    public static final String QUESTION_FILE = "20 Questions/bigquestion.txt";
 
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Welcome to the cse143 question program.");
